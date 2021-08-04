@@ -1,3 +1,6 @@
+# Binary search tree implemention
+# Author: Swapnil Trambake, trambake.swapnil@gmail.com
+
 class BinarySearchTree(object):
     def __init__(self) -> None:
         super().__init__()
