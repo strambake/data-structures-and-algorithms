@@ -39,6 +39,12 @@
 # Output: "MCMXCIV"
 # Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
+from typing import Optional
+from unittest import TestCase
+import unittest
+from unittest.result import TestResult
+
+
 class Solution(object):
     def __init__(self) -> None:
         super().__init__()
@@ -83,15 +89,26 @@ class Solution(object):
         return output
 
 
-sol = Solution()
+class TestIntegerToRoman(TestCase):
+    def setUp(self) -> None:
+        self.sol = Solution()
+        return True
 
-def intToRoman(num):
-    print('Roman conversion of {} is {}'.format(num, sol.intToRoman(num)))
+    def testIntToRoman3(self):
+        self.assertEqual('III', self.sol.intToRoman(3))
 
 
-if __name__ == "__main__":
-    intToRoman(3)
-    intToRoman(4)
-    intToRoman(9)
-    intToRoman(58)
-    intToRoman(1994)
+    def testIntToRoman4(self):
+        self.assertEqual('IV', self.sol.intToRoman(4))
+
+
+    def testIntToRoman9(self):
+        self.assertEqual('IX', self.sol.intToRoman(9))
+
+
+    def testIntToRoman58(self):
+        self.assertEqual('LVIII', self.sol.intToRoman(58))
+    
+
+    def testIntToRoman1994(self):
+        self.assertEqual('MCMXCIV', self.sol.intToRoman(1994))
