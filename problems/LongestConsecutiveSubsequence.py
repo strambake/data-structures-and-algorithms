@@ -19,10 +19,12 @@
 #
 #   0 <= nums.length <= 105
 #   -109 <= nums[i] <= 109
+
 import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
+from unittest import TestCase
 from typing import List
 
 from data_structures.UnionFind.UnionFind import UnionFind
@@ -58,12 +60,12 @@ class UsingUnionFind(object):
             if max < count:
                 max = count
 
-        print ('Longest consecutive subsquence using Union-Find is {}'.format(max))
+        return max
                 
 
 
-if __name__ == "__main__":
-    input = [100,4,200,1,3,2]
-    print ('Input: {}'.format(input))
-    usingUnionFind = UsingUnionFind(input)
-    usingUnionFind.calculateLongestConsecutiveSubsequence()
+class TestLongestConsecutiveSubsequence(TestCase):
+    def testLongestConsecutiveSubsequence(self):
+        input = [100,4,200,1,3,2] 
+        sol = UsingUnionFind(input)
+        self.assertEqual(4, sol.calculateLongestConsecutiveSubsequence())
