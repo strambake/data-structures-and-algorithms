@@ -10,7 +10,7 @@ class NodePosition_E(Enum):
 
 
 # Node structure to hold node value and it's corresponding left and right child link
-class Node(object):
+class Node():
     def __init__(self, value: int) -> None:
         super().__init__()
         self.value = value
@@ -19,7 +19,7 @@ class Node(object):
 
 
 # Class implements binary tree data structure
-class BinaryTree(object):
+class BinaryTree():
     def __init__(self, rootValue) -> None:
         super().__init__()
         self.__root = Node(rootValue)
