@@ -56,9 +56,11 @@ class Solution(object):
             5       :   'V',
             9       :   'IX',
             10      :   'X',
+            40      :   'XL',
             50      :   'L',
             90      :   'XC',
             100     :   'C',
+            400     :   'CD',
             500     :   'D',
             900     :   'CM',
             1000    :   'M'}
@@ -112,3 +114,10 @@ class TestIntegerToRoman(TestCase):
 
     def testIntToRoman1994(self):
         self.assertEqual('MCMXCIV', self.sol.intToRoman(1994))
+
+
+    def testIntToRoman40(self):
+        self.assertEqual('XL', self.sol.intToRoman(40))
+
+    def testIntToRoman400(self):
+        self.assertEqual('CD', self.sol.intToRoman(400))
