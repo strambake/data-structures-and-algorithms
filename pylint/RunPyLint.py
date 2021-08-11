@@ -25,5 +25,5 @@ class RunPyLint():
 
 
 if __name__ == "__main__":
-    dirs = ['data_structures']
+    dirs = ['data_structures', 'problems']
     RunPyLint().run(dirs)

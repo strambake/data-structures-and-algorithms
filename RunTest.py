@@ -22,7 +22,6 @@ testFolders = ['problems']
 
 class RunTests():
     def __init__(self, testFolders=None) -> None:
-
         self.suit = TestSuite()
         self.__getAllTestModules()
 
