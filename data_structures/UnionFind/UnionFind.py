@@ -5,7 +5,7 @@
 
 import pprint
 
-class UnionFind(object):
+class UnionFind():
     def __init__(self) -> None:
         super().__init__()
 
@@ -20,7 +20,7 @@ class UnionFind(object):
         root = None
         if item in self.__items.keys():
             root = item
-            
+
             while self.__items[root] != root:
                 root = self.__items[root]
 
@@ -51,7 +51,7 @@ class UnionFind(object):
 
     def getSetItemsCount(self):
         """
-        Returns list of set item count 
+        Returns list of set item count
         """
         sets = self.__getSets()
         return [len(arr) for arr in sets.values()]
@@ -59,15 +59,15 @@ class UnionFind(object):
 
     def printSets(self):
         """
-        Prints all sets 
+        Prints all sets
         """
         sets = self.__getSets()
         pprint.pprint(sets)
-        
+
 
     def __getSets(self):
         """
-        Get all sets 
+        Get all sets
         """
         sets = dict()
         for item, root in self.__items.items():

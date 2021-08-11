@@ -1,13 +1,15 @@
-# Binary search tree implemention
-# Author: Swapnil Trambake, trambake.swapnil@gmail.com
+"""
+Binary search tree implemention
+Author: Swapnil Trambake, trambake.swapnil@gmail.com
+"""
 
-class BinarySearchTree(object):
+class BinarySearchTree():
     def __init__(self) -> None:
         super().__init__()
         self.__maxNodes = 32
         self.__rootIndex = 0
         self.__nodes = []
-        for i in range(self.__maxNodes):
+        for _unused_i in range(self.__maxNodes):
             self.__nodes.append(None)
 
 
@@ -41,25 +43,27 @@ class BinarySearchTree(object):
         output = []
         self.__postorder(self.__rootIndex, output)
         return output
-        
 
-    def __isEmpty(self) -> bool: 
-        return True if self.__nodes[0] == None else False
+
+    def __isEmpty(self) -> bool:
+        return bool(self.__nodes[0])
 
 
     def __getNodeValue(self, index):
         return self.__nodes[index] if index < len(self.__nodes) else None
 
-    
+
     def __hasNodeValue(self, index) -> bool:
         return self.__getNodeValue(index) is not None
 
 
-    def __leftChildIndex(self, index) -> int:
+    @staticmethod
+    def __leftChildIndex(index) -> int:
         return 2*index + 1
 
 
-    def __rightChildIndex(self, index) -> int:
+    @staticmethod
+    def __rightChildIndex(index) -> int:
         return 2*index + 2
 
 

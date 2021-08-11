@@ -60,7 +60,7 @@ confidence=
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use "--disable=all --enable=classes
 # --disable=W".
-disable=C0103
+disable=C0103, C0115, C0116, C0114
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -139,14 +139,14 @@ redefining-builtins-modules=six.moves,past.builtins,future.builtins,builtins,io
 [BASIC]
 
 # Naming style matching correct argument names.
-argument-naming-style=camelCase
+#argument-naming-style=camelCase
 
 # Regular expression matching correct argument names. Overrides argument-
 # naming-style.
 #argument-rgx=
 
 # Naming style matching correct attribute names.
-attr-naming-style=camelCase
+#attr-naming-style=camelCase
 
 # Regular expression matching correct attribute names. Overrides attr-naming-
 # style.
