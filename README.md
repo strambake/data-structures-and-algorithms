@@ -1,4 +1,5 @@
 # Data Structures in Python
 
-![pylint](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/pylint/badge.svg)
-![Test](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/RunTest/badge.svg)
+
+[![PyLint](https://github.com/strambake/data-structures-and-algorithms/actions/workflows/pylint.yml/badge.svg)](https://github.com/strambake/data-structures-and-algorithms/actions/workflows/pylint.yml)
+[![Test](https://github.com/strambake/data-structures-and-algorithms/actions/workflows/RunTest.yml/badge.svg)](https://github.com/strambake/data-structures-and-algorithms/actions/workflows/RunTest.yml)
