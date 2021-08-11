@@ -1,11 +1,9 @@
 # Nary tree implemention
 # Author: Swapnil Trambake, trambake.swapnil@gmail.com
 
-from typing import List
-
 
 # Node structure to hold node value and it's corresponding left and right child link
-class Node(object):
+class Node():
     def __init__(self, value: int) -> None:
         super().__init__()
         self.val = value
@@ -13,7 +11,7 @@ class Node(object):
 
 
 # Class implements N-ary undirected tree
-class NaryTree(object):
+class NaryTree():
     def __init__(self, rootValue) -> None:
         super().__init__()
         self.__root = Node(rootValue)
@@ -49,7 +47,7 @@ class NaryTree(object):
         queue = []
         queue.append(self.__root)
 
-        while len(queue):
+        while queue.count():
             node = queue.pop(0)
             output.append(node.val)
             for child in node.children:
@@ -62,13 +60,15 @@ class NaryTree(object):
 
 
     def __findNode(self, node : Node, nodeValue : int) -> Node:
+        foundNode = None
         if node.val == nodeValue:
-            return node
+            foundNode = node
         else:
             for child in node.children:
-                foundNode = self.__findNode(child, nodeValue)
-                if foundNode:
-                    return foundNode
+                n = self.__findNode(child, nodeValue)
+                if n:
+                    foundNode = n
+        return foundNode
 
 
     def __inorder(self, node : Node, output) -> None:
@@ -88,7 +88,7 @@ class NaryTree(object):
             output.append(node.val)
             for child in node.children:
                 self.__preorder(child, output)
-            
+
 
     def __postorder(self, node: Node, output : []) -> None:
         if node:
