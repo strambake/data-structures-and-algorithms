@@ -2,7 +2,7 @@ import logging
 
 # create logger with 'spam_application'
 logger = logging.getLogger('data-structures-and-algorithm')
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 # create console handler with a higher log level
 ch = logging.StreamHandler()

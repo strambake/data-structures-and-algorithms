@@ -8,6 +8,7 @@ import os
 import sys
 from importlib import import_module
 from inspect import isclass
+import logging
 from pkgutil import iter_modules
 from unittest import TextTestRunner, TestCase, TestLoader
 from unittest.suite import TestSuite
@@ -38,6 +39,7 @@ class RunTests():
 
 
 if __name__ == "__main__":
+    logger.setLevel(logging.DEBUG)
     logger.debug('Running Tests...')
     testRunner = TextTestRunner(verbosity=2)
     testRunner.run(RunTests().suit)
