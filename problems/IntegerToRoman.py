@@ -39,10 +39,7 @@
 # Output: "MCMXCIV"
 # Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
-from typing import Optional
 from unittest import TestCase
-import unittest
-from unittest.result import TestResult
 
 
 class Solution(object):
