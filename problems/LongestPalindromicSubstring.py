@@ -105,7 +105,7 @@ class TestLongestPalindromicSubstring(TestCase):
                             'cbbd'  :   'bb',
                             'a'     :   'a',
                             'ac'    :   'a',
-                            ''      :   'dfgh',
+                            ''      :   '',
                             'bb'    :   'bb'    }
         return super().setUp()
 
