@@ -54,6 +54,6 @@ if __name__ == "__main__":
         
     logger.debug('Running Tests...')
     testRunner = TextTestRunner(verbosity=2)
-    result = testRunner.run(RunTests().suit)
-    sys.exit(not result.wasSuccessful)
+    result = testRunner.run(RunTests().suit)    
+    sys.exit(len(result.failures))
 
