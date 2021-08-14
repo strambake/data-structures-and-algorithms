@@ -4,6 +4,7 @@ Test Runner class
 @Author Swapni Trambake, trambake.swapnil@gmail.com
 """
 
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import os
 import sys
 from importlib import import_module
@@ -38,8 +39,19 @@ class RunTests():
                     self.suit.addTests(TestLoader().loadTestsFromTestCase(attribute))
 
 
+def parseArgs():
+    argParser = ArgumentParser(description='Running tests', formatter_class=ArgumentDefaultsHelpFormatter)
+    argParser.add_argument('--verbose', action='store_true', help='Add verbose logging')
+    knownArgs, _unusedUnknownArgs = argParser.parse_known_args()
+    return knownArgs
+
+
 if __name__ == "__main__":
-    logger.setLevel(logging.DEBUG)
+    args = parseArgs()
+
+    if args.verbose:
+        logger.setLevel(logging.DEBUG)
+        
     logger.debug('Running Tests...')
     testRunner = TextTestRunner(verbosity=2)
     testRunner.run(RunTests().suit)
