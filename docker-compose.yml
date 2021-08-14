@@ -1,0 +1,27 @@
+version: '3.4'
+
+x-build: &build
+  context: .
+
+x-setup: &setup
+  volumes: 
+      - $PWD:$PWD
+  working_dir: $PWD
+
+x-build-base: &build-base
+  build:
+    dockerfile: docker/Dockerfile
+    <<: *build
+  <<: *setup
+
+services:
+  test:
+    image: data-structures-and-algorithms    
+    <<: *build-base
+    command: bash -c "python3 RunTest.py"
+
+  test-dev:
+    image: data-structures-and-algorithms-dev
+    <<: *build-base
+    command: bash -c "python3 RunTest.py --verbose"
+    
