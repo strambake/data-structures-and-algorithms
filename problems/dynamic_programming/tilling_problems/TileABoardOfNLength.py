@@ -53,7 +53,7 @@ class Solution():
         return self.__dp[boardLength]
 
 
-    @classmethod
+    @staticmethod
     def tileBoardBottomUp(boardLength: int):
         if boardLength in (0, 1):
             return 1
