@@ -50,10 +50,27 @@ class Solution():
         # Find a possible ways for all possible combination
         self.__dp[boardLength] = self.__tileBoardTopDown(boardLength-self.__tile1Length) + self.__tileBoardTopDown(boardLength-self.__tile2Length)
         return self.__dp[boardLength]
-    
+
+
+    def tileBoardBottomUp(self, boardLength: int, tile1Length: int, tile2Length: int):
+        if boardLength == 0 or boardLength == 1:
+            return 1
+
+        dp = [0] * (boardLength+1)
+        dp[0] = 1
+        dp[1] = 1
+        for i in range(2, boardLength+1):
+            dp[i] = dp[i-1] + dp[i-2]
+
+        return dp[boardLength]
 
 
 class TestCalculateTotalWaysToCompleteABoard(TestCase):
-    def test(self):
+    def testTopDown(self):
         sol = Solution()
         self.assertEqual(8, sol.tileBoardTopDown(5, 1, 2))
+
+    
+    def testBottomUp(self):
+        sol = Solution()
+        self.assertEqual(8, sol.tileBoardBottomUp(5, 1, 2))
