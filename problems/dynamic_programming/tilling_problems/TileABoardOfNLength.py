@@ -53,7 +53,8 @@ class Solution():
         return self.__dp[boardLength]
 
 
-    def tileBoardBottomUp(self, boardLength: int):
+    @classmethod
+    def tileBoardBottomUp(boardLength: int):
         if boardLength in (0, 1):
             return 1
 
@@ -71,7 +72,7 @@ class TestCalculateTotalWaysToCompleteABoard(TestCase):
         sol = Solution()
         self.assertEqual(8, sol.tileBoardTopDown(5, 1, 2))
 
-    
+
     def testBottomUp(self):
         sol = Solution()
         self.assertEqual(8, sol.tileBoardBottomUp(5))
