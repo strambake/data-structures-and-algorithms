@@ -5,11 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Run Test",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
+            "program": "RunTest.py",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug: Run Test",
+            "type": "python",
+            "request": "launch",
+            "program": "RunTest.py",
+            "console": "integratedTerminal",
+            "args": [ "--verbose" ]
+        },
+        {
+            "name": "Run PyLint",
+            "type": "python",
+            "request": "launch",
+            "program": "pylint\\RunPyLint.py",
+            "console": "integratedTerminal",
+            "args": [ "--verbose" ]
         }
     ]
 }
