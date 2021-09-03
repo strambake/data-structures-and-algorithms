@@ -10,7 +10,7 @@ class UnionFind():
         super().__init__()
 
         # key - data, value - parent
-        self.__items = dict()
+        self.__items = {}
 
 
     def find(self, item):
@@ -69,7 +69,7 @@ class UnionFind():
         """
         Get all sets
         """
-        sets = dict()
+        sets = {}
         for item, root in self.__items.items():
             root = self.find(item)
 
