@@ -70,4 +70,3 @@ if __name__ == "__main__":
     testRunner = TextTestRunner(verbosity=testRunnerVerbosity)
     result = testRunner.run(RunTests().suit)    
     sys.exit(len(result.failures))
-

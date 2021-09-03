@@ -15,7 +15,7 @@
 
 from typing import Optional
 from unittest import TestCase
-from ...data_structures.LinkedLists.SinglyLinkedList import SinglyLinkedList, ListNode
+from data_structures.LinkedLists.SinglyLinkedList import SinglyLinkedList, ListNode
 
 class Solution:
     def __init__(self) -> None:
