@@ -1,6 +1,5 @@
 from typing import Generic, List, TypeVar
 
-
 T = TypeVar('T')
 class Graph(Generic[T]):
     def __init__(self) -> None:
@@ -33,43 +32,39 @@ class Graph(Generic[T]):
         self.__graph[dest].append(src)
 
 
-
     def bfs(self, startNode: T) -> str:
-        output = ''
-        visited = []
+        output = []
+        visited = set()
         queue = []
 
         if startNode in self.__graph:
             queue.append(startNode)
-            visited.append(startNode)
+            visited.add(startNode)
 
-            while len(queue):
+            while queue:
                 currNode = queue.pop(0)
-                output +=  '{} '.format(currNode)
+                output.append(currNode)
 
                 for connectedNode in self.__graph[currNode]:
                     if connectedNode not in visited:
                         queue.append(connectedNode)
-                        visited.append(connectedNode)
+                        visited.add(connectedNode)
 
         return output
 
 
     def dfs(self, startNode: T):
-        global visited, output
-
         visited = set()
-        output = ''
+        output = []
 
-        self.__dfs(startNode)
+        self.__dfs(startNode, visited, output)
 
         return output
 
 
     def hasPath(self, start: T, dest: T) -> bool:
-        global visited
         visited = set()
-        return self.__hasPath(start, dest)
+        return self.__hasPath(start, dest, visited)
 
 
     def numConnectedComponent(self) -> int:
@@ -80,54 +75,35 @@ class Graph(Generic[T]):
         return max(len(component) for component in self.__getComponents())
 
 
-    def __hasPath(self, currentNode: T, dest: T) -> bool:
-        global visited
-
+    def __hasPath(self, currentNode: T, dest: T, visited: set) -> bool:
         visited.add(currentNode)
         if currentNode == dest:
             return True
-        else:
-            for neighbor in self.__graph[currentNode]:
-                if neighbor not in visited:
-                    if self.__hasPath(neighbor, dest):
-                        return True
-            return False
+
+        for neighbor in self.__graph[currentNode]:
+            if neighbor not in visited:
+                if self.__hasPath(neighbor, dest, visited):
+                    return True
+        return False
 
 
-    def __dfs(self, currNode: T) -> None:
-        global visited, output
-
+    def __dfs(self, currNode: T, visited: set, output: List[int]) -> None:
         visited.add(currNode)
         output.append(currNode)
 
         for neighbor in self.__graph[currNode]:
             if neighbor not in visited:
-                self.__dfs(neighbor)
+                self.__dfs(neighbor, visited, output)
 
 
     def __getComponents(self) -> List[List[int]]:
         components = []
-        global visited, output
         visited = set()
 
         for node in self.__graph.keys():
             output = []
             if node not in visited:
-                self.__dfs(node)
+                self.__dfs(node, visited, output)
 
                 components.append(output)
         return components
-
-
-
-if __name__ == "__main__":
-    g = Graph[int]()
-    g.addUndirectedEdge(1, 2)
-    g.addNode(3)
-    g.addUndirectedEdge(4, 6)
-    g.addUndirectedEdge(5, 6)
-    g.addUndirectedEdge(8, 6)
-    g.addUndirectedEdge(7, 6)
-
-    print('There is {} connected components'.format(g.numConnectedComponent()))
-    print('Largest component {}'.format(g.largetComponent()))
