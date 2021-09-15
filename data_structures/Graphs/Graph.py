@@ -3,7 +3,7 @@ from typing import Generic, List, TypeVar
 T = TypeVar('T')
 class Graph(Generic[T]):
     def __init__(self) -> None:
-        self.__graph = dict()
+        self.__graph = {}
 
 
     def addNode(self, node: T) -> None:
